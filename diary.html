@@ -1,52 +1,21 @@
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="diary.css" />
-<title>Diary</title>
-</head>
+    <head>
+        <title>Diary App</title>
+        <link rel="stylesheet" href="diary.css">
+    </head>
+    <body>
+        <h1 class="title">My Diary</h1>
 
-<body>
-<header>
-<h1 class style="color:white"> Dear Diary</h1>
-</header>
+        <form id="entryForm">
+            <textarea class="entry-textbox" placeholder="start typing..." required></textarea>
+            <br>
+            <button type="submit" class="button">Submit</button>
+        </form>
 
-	<div class="wrapper">            
-      <div class="nav">
-          <div class="logo">
-              <img src="img/34b1395d1acbc32e005375a7b4f03c45-png.jpg" alt="TrackIt" >
-          </div>
-          <div class="menu">
-              <ul>
-                  <li><a href='index.html'>Home</a></li>
-                  <li><a href='about.html'>About Us</a></li>
-				  <li><a href='diary.html'>Diary</a></li>
-                  <li><a href='calendar.html'>Calendar</a></li>
-                  <li><a href='login.html'>Login</a></li>
-          </div>
-      </div>
-	  
-	  <main>
-	  <form id="addRecordForm">
-				<input
-					type="text"
-					placeholder="Enter the title here.."
-					class="titleInput"
-				/>
-				<input type="date" class="datePicker" />
-				<textarea
-					cols="35"
-					rows="5"
-					placeholder="Enter the content here.."
-					class="contentArea"
-				></textarea>
-				<button type="submit" class="btn">Add to Diary</button>
-			</form>
-			<section class="linkSection">
-				<a href="diary.html">View All Diary Entries</a>
-				</section>
- </main>
- <script src="diary.js"></script>
-  </body>
-  </html>
+        <section id="entries">
+            <div class="entries-nav"></div>
+        </section>     
+
+        <script src="diary.js"></script>
+    </body>
+</html>    
