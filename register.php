@@ -1,32 +1,27 @@
 <?php
- $firstName = $_POST['firstname'];
- $lastName = $_POST['lastname'];
- $email = $_POST['email'];
- $password = $_POST['password'];
 
+$servername = "sots.brookes.ac.uk";
+$database = "18075911";
+$username = "18075911";
+$password = "ugcsvqcpvaju";
+$charset = "utf8mb4";
 
- // Database connection
- $conn = mysqli_connect('sots.brookes.ac.uk','18075911','ugcsvqcpvaju','18075911');
- if($conn->connect_error){
-     echo "$conn->connect_error";
-     die("Connection Failed : ". $conn->connect_error);
- } else {
-     $stmt = $conn->prepare("INSERT INTO `account`(`firstname`, `lastname`, `email`, `password`)  VALUES(?, ?, ?, ?)");
-     $stmt->bind_param("ssss", $firstname, $lastname,$email, $password);
-     $execval = $stmt->execute();
-     echo $execval;
-     echo "Registration successfully...";
-     $stmt->close();
-     $conn->close();
- }
+try {
 
+$dsn = "mysql:host=$servername;dbname=$database;charset=$charset";
+$pdo = new PDO($dsn, $username, $password);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+echo “Connection Okay”;
 
+return $pdo
 
+}
 
+catch (PDOException $e)
 
-
-
-
+{
+echo “Connection failed: ”. $e->getMessage();
+}
 
 ?>
